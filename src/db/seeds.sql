@@ -1,12 +1,12 @@
-INSERT INTO burger
-    (name)
+INSERT INTO burgers
+    (burger_name)
 VALUES
     ("Twisted");
-INSERT INTO burger
-    (name)
+INSERT INTO burgers
+    (burger_name)
 VALUES
     ("It's all gravy");
-INSERT INTO burger
-    (name, eaten)
+INSERT INTO burgers
+    (burger_name, devoured)
 VALUES
-    ("Meatless", "true");
+    ("Meatless", true);
