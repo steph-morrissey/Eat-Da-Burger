@@ -1,6 +1,8 @@
 const express = require("express");
 const expressHandlebars = require("express-handlebars");
-const routes = require("./controllers/burgers");
+const path = require("path");
+
+const routes = require("./controllers/burger_controller");
 
 const PORT = process.env.PORT || 8080;
 
@@ -23,6 +25,7 @@ app.use(express.json());
 // Set up express handlebars
 app.engine("handlebars", expressHandlebars(hbOptions));
 app.set("view engine", "handlebars");
+app.set("views", path.join(__dirname, "views"));
 
 // Import routes and allow server access
 app.use(routes);

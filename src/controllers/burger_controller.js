@@ -1,5 +1,4 @@
 const express = require("express");
-
 const router = express.Router();
 
 const burger = require("../models/burger");
@@ -10,6 +9,7 @@ router.get("/", (req, res) => {
       burgers: data,
     };
   });
+  res.render("index");
 });
 
 router.post("/api/burger", (req, res) => {
