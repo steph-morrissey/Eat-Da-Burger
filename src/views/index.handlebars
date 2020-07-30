@@ -1,13 +1,18 @@
 <div class="container">
-    <div class="text-center">
-        <h1>Eat Da Burger</h1>
+    <div class="text-center m-5">
+        <h1 class="text-danger">Eat Da Burger</h1>
     </div>
-    <div class="row">
-        <div class="col-6 text-center">
-            <h3>Burgers</h3>
+    <div class="row d-flex justify-content-center mt-4">
+        <div class="col-6 text-center center-align">
+            <form method="POST" action="/api/burger">
+                <div class="form-group">
+                    <input name="burgerName" type="text" class="form-control" id="burgerId"
+                        placeholder="e.g: classic cheeseburger">
+                    <button type="submit" class="btn btn-success mt-4">Submit</button>
+                </div>
+                <small> Enter the name of a burger you want to eat!</small>
+            </form>
         </div>
-        <div class="col-6 text-center">
-            <h3>Devoured burgers</h3>
-        </div>
+
     </div>
 </div>

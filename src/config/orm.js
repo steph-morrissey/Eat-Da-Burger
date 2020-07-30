@@ -12,7 +12,7 @@ const selectAll = (table, cb) => {
 
 // Insert a new burger into the db
 const insertOne = (table, fieldName, fieldValue, cb) => {
-  const query = `INSERT INTO ${table}(${fieldName}) VALUES ${fieldValue}`;
+  const query = `INSERT INTO ${table}(${fieldName}) VALUES ("${fieldValue}")`;
   const onQuery = (err, rows) => {
     if (err) throw err;
     console.table(rows);
