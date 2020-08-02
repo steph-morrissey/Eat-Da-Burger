@@ -5,7 +5,7 @@ const selectAll = (table, cb) => {
   const query = `SELECT * FROM ${table}`;
   const onQuery = (err, rows) => {
     if (err) throw err;
-    console.table(rows);
+    cb(rows);
   };
   connection.query(query, onQuery);
 };
@@ -15,18 +15,18 @@ const insertOne = (table, fieldName, fieldValue, cb) => {
   const query = `INSERT INTO ${table}(${fieldName}) VALUES ("${fieldValue}")`;
   const onQuery = (err, rows) => {
     if (err) throw err;
-    console.table(rows);
+    cb(rows);
   };
-
   connection.query(query, onQuery);
 };
 
 // Update an existing burger in the db
 const updateOne = (table, fieldName, fieldValue, id, cb) => {
   const query = `UPDATE ${table} SET ${fieldName}=${fieldValue} WHERE id=${id}`;
+  console.log(query);
   const onQuery = (err, rows) => {
     if (err) throw err;
-    console.table(rows);
+    cb(rows);
   };
 
   connection.query(query, onQuery);

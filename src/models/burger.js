@@ -1,9 +1,11 @@
 const orm = require("../config/orm");
 
-const selectAll = (cb) => {
-  orm.selectAll("burgers", (res) => {
+const selectAll = (table, cb) => {
+  const onSuccess = (res) => {
+    console.log("here", res);
     cb(res);
-  });
+  };
+  orm.selectAll("burgers", onSuccess);
 };
 
 const insertOne = (fieldName, fieldValue, cb) => {

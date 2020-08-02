@@ -8,32 +8,29 @@ router.get("/", (req, res) => {
 });
 
 router.get("/burgers", (req, res) => {
-  console.log("av been hit ");
-  res.render("burgerDashboard");
+  const selectAllCallback = (burgers) => {
+    res.render("burgerDashboard", { burgers });
+  };
+
+  burger.selectAll("burgers", selectAllCallback);
 });
 
-router.post("/api/burger", async (req, res) => {
-  console.log(req.body);
-  try {
-    const burgerName = "burger_name";
-    const burgerValue = req.body.burgerName;
-    await burger.insertOne(burgerName, burgerValue, (result) => {
-      console.log("burger successfully added");
-    });
+router.post("/api/burger", (req, res) => {
+  const burgerName = "burger_name";
+  const burgerValue = req.body.burgerName;
+  burger.insertOne(burgerName, burgerValue, (result) => {
+    console.log("burger successfully added");
     res.redirect("/burgers");
-  } catch (err) {
-    console.log(err);
-    res.status(401).json(err);
-  }
+  });
 });
 
 router.put("/api/burger/:id", (req, res) => {
-  const fieldName = "burger_name";
-  const fieldValue = req.params.updateBurger;
-  const id = req.body.id;
+  const fieldName = "devoured";
+  const fieldValue = true;
+  const id = req.params.id;
 
-  burger.update(fieldName, fieldValue, id, (result) => {
-    res.json("successfully updated burger name");
+  burger.updateOne(fieldName, fieldValue, id, (result) => {
+    res.redirect("burgerDashboard");
   });
 });
 
