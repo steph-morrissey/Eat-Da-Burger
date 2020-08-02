@@ -4,4 +4,5 @@ $(".devour").on("click", function () {
   const ajaxOptions = { type: "PUT" };
 
   $.ajax(`/api/burger/${id}`, ajaxOptions);
+  location.reload();
 });

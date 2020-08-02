@@ -2,22 +2,23 @@ const orm = require("../config/orm");
 
 const selectAll = (table, cb) => {
   const onSuccess = (res) => {
-    console.log("here", res);
     cb(res);
   };
   orm.selectAll("burgers", onSuccess);
 };
 
 const insertOne = (fieldName, fieldValue, cb) => {
-  orm.insertOne("burgers", fieldName, fieldValue, (res) => {
+  const onSuccess = (res) => {
     cb(res);
-  });
+  };
+  orm.insertOne("burgers", fieldName, fieldValue, onSuccess);
 };
 
 const updateOne = (fieldName, fieldValue, id, cb) => {
-  orm.updateOne("burgers", fieldName, fieldValue, id, (res) => {
+  const onSuccess = (res) => {
     cb(res);
-  });
+  };
+  orm.updateOne("burgers", fieldName, fieldValue, id, onSuccess);
 };
 
 const burger = {

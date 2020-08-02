@@ -16,7 +16,7 @@ const hbOptions = {
 };
 
 // Serve static content for the app from "public" folder
-app.use(express.static("public"));
+app.use(express.static(path.join(__dirname, "public")));
 
 // Parse application body
 app.use(express.urlencoded({ extended: true }));

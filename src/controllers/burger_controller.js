@@ -29,8 +29,10 @@ router.put("/api/burger/:id", (req, res) => {
   const fieldValue = true;
   const id = req.params.id;
 
+  console.log("ID", id);
+
   burger.updateOne(fieldName, fieldValue, id, (result) => {
-    res.redirect("burgerDashboard");
+    console.log("successfully updated");
   });
 });
 
