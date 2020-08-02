@@ -8,10 +8,10 @@
         <div class="col-6">
             <h3>Available burgers</h3>
             <div class="allBurgers">
-                <ul>
-                    {{#if burgers}}
-                    {{#each burgers}}
-                    {{> burger}}
+                <ul style="list-style-type: none;">
+                    {{#if devourItData}}
+                    {{#each devourItData}}
+                    {{> devourIt}}
                     {{/each}}
                     {{/if}}
                 </ul>
@@ -19,6 +19,15 @@
         </div>
         <div class="col-6">
             <h3>Devoured burgers</h3>
+            <div class="allBurgers">
+                <ul style="list-style-type: none;">
+                    {{#if devouredData}}
+                    {{#each devouredData}}
+                    {{> devoured}}
+                    {{/each}}
+                    {{/if}}
+                </ul>
+            </div>
         </div>
     </div>
     <form action="/" method="GET">

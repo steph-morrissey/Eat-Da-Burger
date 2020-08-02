@@ -9,7 +9,18 @@ router.get("/", (req, res) => {
 
 router.get("/burgers", (req, res) => {
   const selectAllCallback = (burgers) => {
-    res.render("burgerDashboard", { burgers });
+    const devourItData = [];
+    const devouredData = [];
+    burgers.map((burger) => {
+      if (burger.devoured) {
+        devouredData.push(burger);
+        console.log("devoured", burger);
+      } else {
+        devourItData.push(burger);
+        console.log("devourIt", burger);
+      }
+    });
+    res.render("burgerDashboard", { devourItData, devouredData });
   };
 
   burger.selectAll("burgers", selectAllCallback);
