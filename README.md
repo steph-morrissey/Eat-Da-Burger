@@ -6,6 +6,8 @@
 
 A restaurant app that allows users to add a burger they would like to eat, and then Devour It!
 
+Link to deployed version: <https://intense-ocean-50011.herokuapp.com/>
+
 ## Table of Contents
 
 - [Installation](#installation)
